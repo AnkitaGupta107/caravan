@@ -16,7 +16,7 @@ public class HomeActivity extends TabbedActivity {
 
     @Override
     protected void onFabButtonClick() {
-        startActivity(new Intent(this, CheckoutActivity.class));
+        startActivity(new Intent(this, CartActivity.class));
     }
 
     @Override

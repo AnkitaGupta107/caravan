@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -19,7 +20,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            <android.support.v7.widget.CardView
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card_view:cardBackgroundColor="@android:color/white"
@@ -48,7 +50,8 @@
                         android:id="@+id/user_address"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Unitech Trade center \nSushant Arcade\nSouth city 1"
+                        android:layout_marginTop="10dp"
+                        android:text="Hotel \nCountry Inn, Sector-42 \nNainital"
                         android:textColor="@color/orderDetail_existInfo"
                         android:textSize="15sp" />
 
@@ -82,33 +85,52 @@
                         android:textColor="@color/orderDetail_addressTitle"
                         android:textSize="16sp" />
 
-                    <EditText
-                        android:id="@+id/user_name"
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/search_bg"
                         android:layout_marginBottom="10dp"
                         android:layout_marginTop="10dp"
-                        android:ems="10"
                         android:hint="Full Name"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15sp"
+                        android:singleLine="true"
                         android:inputType="textCapWords"
-                        android:padding="10dp"
-                        android:privateImeOptions="nm"
-                        android:textCursorDrawable="@drawable/custom_cursor"
-                        android:textSize="15sp" />
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/colorAccent" />
 
-                    <AutoCompleteTextView
-                        android:id="@+id/user_email"
+                    <com.rengwuxian.materialedittext.MaterialEditText
+                        android:id="@+id/email"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="@drawable/search_bg"
                         android:layout_marginBottom="5dp"
                         android:layout_marginTop="5dp"
-                        android:ems="10"
                         android:hint="Email Address"
-                        android:inputType="textEmailAddress"
-                        android:padding="10dp"
-                        android:privateImeOptions="nm"
-                        android:textCursorDrawable="@drawable/custom_cursor"
-                        android:textSize="15sp" />
+                        android:paddingLeft="10dp"
+                        android:paddingRight="5dp"
+                        android:textSize="15sp"
+                        android:singleLine="true"
+                        android:inputType="textCapWords"
+                        app:met_floatingLabel="normal"
+                        app:met_primaryColor="@color/colorAccent" />
+
+
+                    <!--<AutoCompleteTextView-->
+                        <!--android:id="@+id/user_email"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginBottom="5dp"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:ems="10"-->
+                        <!--android:hint="Email Address"-->
+                        <!--android:inputType="textEmailAddress"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:privateImeOptions="nm"-->
+                        <!--android:textCursorDrawable="@drawable/custom_cursor"-->
+                        <!--android:textSize="15sp" />-->
 
                 </LinearLayout>
 

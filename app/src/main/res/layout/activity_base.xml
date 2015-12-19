@@ -5,21 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/coordinator_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/coordinator_layout">
+        android:orientation="vertical">
 
-        <include layout="@layout/appbar" />
+        <RelativeLayout
+            android:id="@+id/appBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/appbar" />
+
+        </RelativeLayout>
 
         <LinearLayout
             android:id="@+id/activity_content"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            android:orientation="vertical"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+            android:layout_below="@+id/appBar"
+            android:orientation="vertical" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_button"
@@ -33,7 +40,7 @@
             app:layout_anchorGravity="bottom|right|end" />
 
 
-    </android.support.design.widget.CoordinatorLayout>
+    </RelativeLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/navigationView"
@@ -42,20 +49,19 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/drawer_header"
         app:itemIconTint="@color/selector_menu_icon_color"
-        app:itemTextColor="@color/selector_menu_text_color" >
+        app:itemTextColor="@color/selector_menu_text_color">
 
-            <TextView
-                android:id="@+id/app_info"
-                android:layout_gravity="bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:clickable="false"
-                android:padding="4dp"
-                android:textSize="14sp"
-                android:textColor="@color/primary_highlight_text_color"
-               />
+        <TextView
+            android:id="@+id/app_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:gravity="right"
+            android:padding="4dp"
+            android:textColor="@color/primary_highlight_text_color"
+            android:textSize="14sp" />
 
     </android.support.design.widget.NavigationView>
 

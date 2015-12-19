@@ -15,11 +15,6 @@
             android:title="Orders" />
 
         <item
-            android:id="@+id/finances"
-            android:checked="false"
-            android:icon="@drawable/drawer_icon_change_password"
-            android:title="Finances" />
-        <item
             android:id="@+id/contact"
             android:checked="false"
             android:icon="@drawable/drawer_icon_contact"

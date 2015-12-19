@@ -6,7 +6,6 @@ import android.view.MenuItem;
 import com.peppertap.caravan.R;
 
 /**
- * Created by samvedana on 19/12/15.
  */
 public class CheckoutActivity extends BaseActivity {
 
@@ -14,7 +13,7 @@ public class CheckoutActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //initialise();
-        setContentView(NONE);
+        setContentView(R.layout.checkout_detail);
     }
 
     @Override
