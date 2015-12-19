@@ -57,28 +57,48 @@
                     android:layout_height="wrap_content">
 
                     <TextView
-                        android:id="@+id/order_item_order_id"
+                        android:id="@+id/order_item_order_id1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:textColor="@color/previousOrder_orderId"
-                        android:textSize="17sp" />
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="@string/previous_order_id1"/>
 
                     <TextView
-                        android:id="@+id/order_item_order_date"
+                        android:id="@+id/order_item_order_date1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:textColor="@color/previousOrder_orderId"
-                        android:textSize="17sp" />
+                        android:textColor="@color/black"
+                        android:textSize="17sp"
+                        android:text="@string/prev_del_date1"/>
 
                 </TableRow>
 
-                <ListView
-                    android:id="@+id/order_list"
-                    android:visibility="gone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/order_item_order_id2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:text="@string/previous_order_id2"/>
+
+                <TextView
+                    android:id="@+id/order_item_order_date2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:textColor="@color/black"
+                    android:textSize="17sp"
+                    android:text="@string/prev_del_date2"/>
+
+            </TableRow>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -121,9 +141,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/previousOrder_orderId"
-                android:text="Rs 10,50,875,677"
+                android:text="Rs 1,50,000"
                 android:layout_gravity="center"
                 android:textSize="22sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/previousOrder_orderId"
+                android:text="Delivered Orders"
+                android:layout_gravity="end"/>
 
         </LinearLayout>
 

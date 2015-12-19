@@ -34,6 +34,11 @@ public class FaqActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean useFabButton(){
+        return false;
+    }
+
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
     }
