@@ -33,7 +33,7 @@ public class CaravanApp extends Application {
         AppPreferenceUtils.initialise(this);
         appData = new AppData();
 
-        EventBus.getDefault().register(this);
+        //EventBus.getDefault().register(this);
     }
 
     public CaravanApi getApi() {
