@@ -174,7 +174,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
         ResponseListener<JsonObject> responseListener = new ResponseListener<JsonObject>() {
             @Override
             public void onResponse(JsonObject result) {
-                Timber.d(result.toString());
+                //Timber.d(result.toString());
 
                 if (JsonHelper.getValueOrNone(result, "status").equals("OK")) {
                     ProductHelper productHelper = ProductHelper.fromJson(result);

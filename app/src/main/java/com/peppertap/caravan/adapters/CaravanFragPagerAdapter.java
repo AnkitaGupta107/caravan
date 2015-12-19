@@ -58,8 +58,7 @@ public class CaravanFragPagerAdapter extends FragmentStatePagerAdapter {
         switch (position) {
             //todo
             case 0:
-                //return DashboardFragment.getInstance();
-                return new Fragment();
+                return new DashboardFragment();
             case 1:
                 return new ShopFragment();
             default:
