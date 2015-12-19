@@ -136,17 +136,23 @@ public abstract class TabbedActivity extends BaseActivity {
         switch (menuItem.getItemId()) {
             //Replacing the main content with ContentFragment Which is our Inbox View;
             case R.id.dashboard:
-
+                mViewPager.setCurrentItem(0);
                 return true;
-
+            case R.id.orders:
+                startActivity(new Intent(this,OrdersActivity.class));
+                return true;
             case R.id.contact:
                 callToCustomerCare();
                 return true;
-
             case R.id.faq:
-
+                startActivity(new Intent(this,FaqActivity.class));
                 return true;
-
+            case R.id.profile:
+                return false;
+            case R.id.logout:
+                globalApplication.clearAppData();
+                startActivity(new Intent(this,HomeActivity.class));
+                return true;
             default:
                 return false;
         }
