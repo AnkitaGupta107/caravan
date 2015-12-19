@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/order_review_content_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="visible">
+
+    <ListView
+        android:id="@+id/review_body_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:background="@android:color/white"
+        android:divider="@color/lightGrey"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="false"
+        android:clipToPadding="false"
+        android:overScrollFooter="@android:color/transparent"/>
+
+    <LinearLayout android:id="@+id/orderReview_priceBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/order_review_price_bg">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorAccent"
+            android:layerType="software" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orderReview_priceHeading"
+                    android:textSize="15sp"
+                    android:text="Total Amount"/>
+
+                <RelativeLayout android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="end">
+
+                    <TextView android:id="@+id/cart_body_subtotal"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="15sp"
+                        />
+
+                </RelativeLayout>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/pepper_cash_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp"
+                android:layout_marginBottom="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/orderReview_priceHeading"
+                    android:textSize="15sp"
+                    android:text="Items"/>
+
+                <RelativeLayout android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:gravity="end">
+
+                    <TextView
+                        android:id="@+id/minus_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:textColor="@color/previousOrder_orderId_title"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/review_pepper_cash"
+                        android:layout_toRightOf="@id/minus_sign"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="15sp"
+                        android:layout_marginLeft="5dp"
+                        android:text="0.0"/>
+
+                </RelativeLayout>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <Button
+            android:id="@+id/place_order_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/brand_btn"
+            android:textColor="@color/white"
+            android:layout_marginBottom="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="Schedule Order" />
+    </LinearLayout>
+
+</RelativeLayout>

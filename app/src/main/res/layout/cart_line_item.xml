@@ -98,16 +98,6 @@
             android:textColor="#4a4a4a"
             android:layout_toRightOf="@+id/equal"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="Add to Cart"
-            android:textSize="12sp"
-            android:textColor="@android:color/white"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_centerVertical="true"
-            android:background="@drawable/brand_pink_btn"/>
 
 
 
