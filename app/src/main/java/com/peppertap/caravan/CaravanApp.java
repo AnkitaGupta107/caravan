@@ -9,6 +9,7 @@ import android.app.Application;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.peppertap.caravan.DAOHelpers.DbWrapper;
 import com.peppertap.caravan.network.CaravanApi;
 import com.peppertap.caravan.utils.AppPreferenceUtils;
 
@@ -19,6 +20,8 @@ public class CaravanApp extends Application {
     private CaravanApi api = null;
     private RequestQueue mRequestQueue;
     private AppData appData;
+
+    private DbWrapper wrapper = null;
 
     @Override
     public void onCreate() {
@@ -48,6 +51,13 @@ public class CaravanApp extends Application {
             mRequestQueue = Volley.newRequestQueue(this);
         }
         return mRequestQueue;
+    }
+
+    public DbWrapper getDbWrapper() {
+        if (wrapper == null) {
+            wrapper = new DbWrapper(this);
+        }
+        return wrapper;
     }
 
     public AppData getAppData() {
