@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#db453b</color>
-    <color name="colorPrimaryDark">#a44638</color>
-    <color name="colorAccent">#ffc107</color>
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="accent_dark">#C2185B</color>
 
     <color name="window_background_color">#eeeeee</color>
     <color name="background_list_items">#fafafa</color>
@@ -33,4 +34,130 @@
     <!--Drawer-->
 
     <color name="drawer_header_background_color">#f7f7f7</color>
+
+    <!--Common Color-->
+    <color name="lightGrey">#DFDFDF</color>
+    <color name="addressDivider">#fff0f0f0</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="grey">#606262</color>
+    <color name="tomato_red">#e6412c</color>
+    <color name="tomato_darkRed">#ffe60244</color>
+    <color name="tomato_green">#3D8A3B</color>
+    <color name="main_fragment_container">#ffeeeeee</color>
+    <color name="snackbar_bg">#303230</color>
+    <color name="green_divider">#45933b</color>
+    <!--End Common Color-->
+
+    <!--Product Page-->
+    <color name="product_title">#000000</color>
+    <color name="product_attribute">#828282</color>
+    <color name="product_price">#2B2B2B</color>
+    <color name="product_arrowBtn">#8c8c8c</color>
+    <color name="description">#777B7C</color>
+    <color name="product_listDivider">#cdcdcd</color>
+    <color name="product_removeBtn_selector">#424242</color>
+    <!--End Product Page-->
+
+
+    <!--Log in Page-->
+    <color name="login_proceedBtn">#1f5b34</color>
+    <color name="login_proceed">#ffffff</color>
+    <color name="login_agreement_line">#99ffffff</color>
+    <color name="login_isd_code">#ffffff</color>
+    <color name="startShoppingBtn">#E53D2F</color>
+    <color name="startShoppingBtnPress">#C12417</color>
+
+    <!--End Log in Page-->
+
+    <!--Cart Page-->
+    <color name="cart_empty_bg">#303030</color>
+    <color name="brand_green">#00c264</color>
+    <color name="cart_price">#777B7C</color>
+    <!--End Cart Page-->
+
+    <!--Product Detail Page-->
+    <color name="productDetail_productTitle">#000000</color>
+    <color name="productDetail_mrp">#8c8c8c</color>
+    <color name="productDetail_productAttribute">#7d7d7d</color>
+    <color name="productDetail_description">#353535</color>
+
+
+    <!--Drawer Page-->
+    <color name="drawer_list_item">#000000</color>
+
+    <!--Checkout Page-->
+    <color name="orderReview_totalMrp">#2b2b2b</color>
+    <color name="orderReview_outOfStock">#cecdd2</color>
+    <color name="orderReview_mrp">#828282</color>
+    <color name="orderReview_cross">#7f7f7f</color>
+    <color name="orderReview_priceHeading">#585858</color>
+    <color name="orderReview_bg">#E6FFFFFF</color>
+    <color name="orderReview_orderBtn">#00c068</color>
+    <color name="orderReview_orderBtn_disabled">#ffd2d2d2</color>
+    <color name="checkout_activeBreadcrumb">#363636</color>
+    <color name="checkout_inactive_btn">#c3c3c3</color>
+    <color name="orderDetail_addressTitle">#000000</color>
+    <color name="orderDetail_saleInfo">#212121</color>
+    <color name="orderDetail_existInfo">#676666</color>
+    <color name="orderDetail_paymentsTitle">#ff8c8c8c</color>
+    <color name="timeSlot_selectTime">#ff65666b</color>
+    <color name="orderConfirmation_summaryItems">#999999</color>
+    <color name="orderConfirmation_summaryDetail">#4a4a4a</color>
+    <color name="otp_enter_title">#323336</color>
+    <color name="otp_desc">#b1b0af</color>
+    <color name="otp_awaiting_color">#c3c3c3</color>
+    <color name="otp_counter">#777777</color>
+    <color name="enter_manually">#b3b3b2</color>
+    <color name="enter_manually_selector_background">#dfdfdf</color>
+    <color name="disabled_radio_button">#d5d6d9</color>
+    <color name="paytm_btn">#46b7eb</color>
+    <color name="paytm_btn_selector">#0299de</color>
+    <color name="slot_full">#ff0000</color>
+
+
+    <!--Previous Order Page-->
+    <color name="previousOrder_orderId_title">#9a9a9a</color>
+    <color name="previousOrder_orderId">#000000</color>
+    <color name="previousOrder_trackingStatus">#878787</color>
+    <color name="previousOrder_trackingActiveStatus">#00c068</color>
+    <color name="previousOrder_payableIndicator">#00c068</color>
+    <color name="previousOrder_cancelIndicator">#ee493a</color>
+    <color name="OrderDetail_sp">#999999</color>
+    <color name="OrderDetail_ItemPrice">#505050</color>
+    <color name="OrderDetail_product">#505050</color>
+    <color name="cancel_bar">#f2ffffff</color>
+    <color name="disable_modify_btn">#404f4f4f</color>
+
+
+    <!--Society Selection-->
+    <color name="society_editText">#c2c1c1</color>
+
+    <!--Notification-->
+    <color name="notification_alert">#ef493b</color>
+
+    <!--Cancel Feedback-->
+    <color name="disable_feedback_btn">#404f4f4f</color>
+
+    <!-- FAQ -->
+    <color name="faq_card_header">#D9000000</color>
+    <color name="faq_order_no">#4a4a4a</color>
+    <color name="help_helpShift_grey">#a8a8a8</color>
+    <color name="help_helpShift_textColorPrimary">#565656</color>
+    <color name="help_helpShift_grey_bg">#ececec</color>
+    <color name="help_helpShift_admin_chat">#cfeafa</color>
+
+    <!-- Contact Us Modal -->
+    <color name="contactUs_calls_btn">#dcdcdc</color>
+    <color name="contactUs_call_btn_textColor">#9b9b9b</color>
+
+    <!-- Rate Us Page -->
+    <color name="rate_greyCard_bg">#b5b5b5</color>
+    <color name="rate_subTitle">#999999</color>
+
+
+    <!-- Payment Flow -->
+    <color name="bank_textColor">#434343</color>
+    <color name="payment_textColor">#4A4A4A</color>
+    <color name="payment_promotion_textColor">#8B8B8B</color>
 </resources>

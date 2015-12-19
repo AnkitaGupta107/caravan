@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="10dp">
+
+    <LinearLayout
+        android:id="@+id/image_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:paddingRight="5dp">
+
+        <ImageView
+            android:id="@+id/line_item_image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentLeft="true"
+            android:padding="5dp"
+            android:layout_centerVertical="true"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/line_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_wrapper"
+        android:text="Taza"
+        android:textSize="15sp"
+        android:maxLines="1"
+        android:textColor="@color/product_title"
+        android:layout_marginTop="3dp"
+        />
+
+    <TextView
+        android:id="@+id/line_item_wt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_wrapper"
+        android:layout_below="@id/line_item_title"
+        android:textSize="14sp"
+        android:text="500gm"
+        android:textColor="@color/product_attribute"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/image_wrapper"
+        android:layout_below="@+id/line_item_wt"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="6dp">
+
+        <TextView android:id="@+id/mrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:layout_centerVertical="true"
+            android:textColor="#4a4a4a" />
+
+
+        <TextView
+            android:id="@+id/cross"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="X"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/mrp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp" />
+
+        <EditText android:id="@+id/quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/product_attribute"
+            android:layout_toRightOf="@+id/cross" />
+
+        <TextView
+            android:id="@+id/equal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorAccent"
+            android:layout_toRightOf="@+id/quantity"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp" />
+
+        <TextView android:id="@+id/total_mrp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="500"
+            android:layout_centerVertical="true"
+            android:textColor="#4a4a4a"
+            android:layout_toRightOf="@+id/equal"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Add to Cart"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/brand_pink_btn"/>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
