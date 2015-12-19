@@ -12,6 +12,8 @@ public class AppData {
     String username;
     String password;
 
+    String customer_name = "Country Inn, Nainital";
+
     //application lifetime variables
 
     public static class Keys {
@@ -25,5 +27,9 @@ public class AppData {
 
     public void clearAppData() {
 
+    }
+
+    public String getCustomerName() {
+        return customer_name;
     }
 }
