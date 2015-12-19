@@ -85,7 +85,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="1234"
+                        android:text="@string/previous_order_id1"
                         android:textAllCaps="true"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
@@ -94,7 +94,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="18 Dec, 2015"
+                        android:text="@string/prev_placed_date1"
                         android:textAllCaps="true"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
@@ -103,7 +103,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="500"
+                        android:text="@string/total_amount"
                         android:textAllCaps="true"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
@@ -127,7 +127,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="1235"
+                        android:text="@string/previous_order_id2"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
@@ -135,7 +135,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="16 Dec, 2015"
+                        android:text="@string/prev_placed_date2"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
@@ -143,7 +143,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="500"
+                        android:text="@string/total_amount2"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
@@ -166,7 +166,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="1236"
+                        android:text="@string/previous_order_id3"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
@@ -174,7 +174,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.5"
-                        android:text="10 Dec, 2015"
+                        android:text="@string/prev_placed_date3"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
@@ -182,7 +182,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="500"
+                        android:text="@string/total_amount3"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
 
