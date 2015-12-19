@@ -17,6 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets {
+        main {
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java.srcDirs = ['src/main/java', 'src/main/java-gen']
+            res.srcDirs = ['src/main/res']
+        }
+    }
 }
 
 dependencies {
@@ -37,6 +44,8 @@ dependencies {
     compile 'com.jakewharton:butterknife:6.1.0'
     //publish subscribe event bus for asynchronous as well as synchronous event handling
     compile 'de.greenrobot:eventbus:2.4.0'
+    /* Library for database interactions */
+    compile 'de.greenrobot:greendao:1.3.7'
     //volley
     compile 'com.mcxiaoke.volley:library:1.0.0'
     /* Android networking library */

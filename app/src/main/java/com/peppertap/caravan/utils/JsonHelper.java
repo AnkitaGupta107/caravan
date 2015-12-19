@@ -1,5 +1,7 @@
 package com.peppertap.caravan.utils;
 
+import android.util.Log;
+
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -66,5 +68,27 @@ public class JsonHelper {
         }else{
             return null;
         }
+    }
+
+    public static String getValueOrNone(JsonObject jsonObject, String key){
+        try{
+            return jsonObject.get(key).getAsString();
+        }catch(Exception e){
+            Log.e(TAG, key);
+            return "NA";
+        }
+    }
+
+    public static String getSearchText(JsonObject object){
+        String address_line = getValueOrNone(object, "addressLine");
+        String area = getValueOrNone(object, "area");
+        String city = getValueOrNone(object, "city");
+        String text = address_line;
+
+        if (!text.equals("")) text += ", ";
+        if (!area.equals("")) text += area + ", ";
+        text += city;
+
+        return text;
     }
 }

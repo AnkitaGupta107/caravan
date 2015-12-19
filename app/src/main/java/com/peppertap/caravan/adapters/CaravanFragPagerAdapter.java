@@ -45,8 +45,7 @@ public class CaravanFragPagerAdapter extends FragmentStatePagerAdapter {
         switch (screenType) {
             //todo - add cases as needed
             case HOME:
-                //return getHomeScreenFragment(position);
-                return new Fragment();
+                return getHomeScreenFragment(position);
             case CART:
                 //return getCartScreenFragment(position);
                 return new Fragment();
@@ -60,8 +59,9 @@ public class CaravanFragPagerAdapter extends FragmentStatePagerAdapter {
             //todo
             case 0:
                 //return DashboardFragment.getInstance();
+                return new Fragment();
             case 1:
-                //return ShopFragment.getInstance();
+                return new ShopFragment();
             default:
                 return null;
         }

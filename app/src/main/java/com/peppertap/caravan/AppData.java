@@ -9,16 +9,14 @@ import com.google.gson.Gson;
  */
 public class AppData {
     //variables to be saved across restarts
-    String username;
-    String password;
 
     String customer_name = "Country Inn, Nainital";
+    String session_id = "i3nk0tluvfw4p2t";
+    String zone_id = "1";
 
     //application lifetime variables
 
     public static class Keys {
-        public static final String USERNAME = "Username";
-        public static final String PASSWORD = "Password";
     }
 
     public AppData() {
@@ -31,5 +29,13 @@ public class AppData {
 
     public String getCustomerName() {
         return customer_name;
+    }
+
+    public String getSession_id() {
+        return session_id;
+    }
+
+    public String getZone_id() {
+        return zone_id;
     }
 }
