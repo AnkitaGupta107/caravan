@@ -15,12 +15,4 @@
         android:clipToPadding="false"
         />
 
-    <Button
-        android:id="@+id/schedule_order_btn"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        style="@style/Widget.AppCompat.Button.Colored"
-        android:text="Schedule Order"/>
 </RelativeLayout>

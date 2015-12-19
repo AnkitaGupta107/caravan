@@ -446,6 +446,7 @@
                 android:layout_marginRight="10dp"
                 android:background="@drawable/brand_btn"
                 android:text="Schedule Order"
+                android:onClick="sendMessage"
                 android:textColor="@color/white" />
         </LinearLayout>
 
