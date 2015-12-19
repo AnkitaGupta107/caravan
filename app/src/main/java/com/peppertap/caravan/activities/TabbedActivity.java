@@ -65,11 +65,11 @@ public abstract class TabbedActivity extends BaseActivity {
         switch (activityType) {
             case HOME:
                 mPagerAdaptor = new CaravanFragPagerAdapter(this, getSupportFragmentManager(), ActivityType.HOME);
-                navigationView.getMenu().getItem(0).setChecked(true);
+                //navigationView.getMenu().getItem(0).setChecked(true);
                 break;
             case CART:
                 mPagerAdaptor = new CaravanFragPagerAdapter(this, getSupportFragmentManager(), ActivityType.CART);
-                navigationView.getMenu().getItem(1).setChecked(true);
+                //navigationView.getMenu().getItem(1).setChecked(true);
                 break;
             default:
                 Timber.e("Tabs should not exist");
@@ -82,7 +82,7 @@ public abstract class TabbedActivity extends BaseActivity {
         selectedTabPosition = 0;
         //mPageChangeListener.onPageSelected(0);
 
-        if (activityType == ActivityType.HOME) {
+        if (activityType == ActivityType.CART) {
             mDrawerToggle.setDrawerIndicatorEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setHomeButtonEnabled(true);
@@ -98,7 +98,7 @@ public abstract class TabbedActivity extends BaseActivity {
         if (navMenuId != NONE) {
             navigationView.getMenu().clear();
             navigationView.inflateMenu(navMenuId);
-            navigationView.getMenu().getItem(0).setChecked(true);
+            //navigationView.getMenu().getItem(0).setChecked(true);
             navigationView.setNavigationItemSelectedListener(this);
 
             TextView mPartnerName = (TextView) navigationView.getHeaderView(0).findViewById(R.id.store_name);
