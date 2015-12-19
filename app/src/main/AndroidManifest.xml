@@ -30,6 +30,7 @@
         <activity
             android:name=".activities.FaqActivity">
         </activity>
+        <activity android:name=".activities.CartActivity"/>
     </application>
 
 </manifest>

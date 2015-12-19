@@ -53,6 +53,7 @@ public abstract class TabbedActivity extends BaseActivity {
         initialise();
         setContentView(R.layout.activity_main);
 
+
         mContainer = (FrameLayout) findViewById(R.id.container);
     }
 

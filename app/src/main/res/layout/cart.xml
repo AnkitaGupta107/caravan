@@ -7,21 +7,23 @@
 
     <ListView
         android:id="@+id/review_body_list"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/orderReview_priceBox"
         android:background="@android:color/white"
+        android:clipToPadding="false"
         android:divider="@color/lightGrey"
         android:dividerHeight="1dp"
         android:footerDividersEnabled="false"
-        android:clipToPadding="false"
-        android:overScrollFooter="@android:color/transparent"/>
+        android:overScrollFooter="@android:color/transparent" />
 
-    <LinearLayout android:id="@+id/orderReview_priceBox"
+    <LinearLayout
+        android:id="@+id/orderReview_priceBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/order_review_price_bg">
+        android:background="@drawable/order_review_price_bg"
+        android:orientation="vertical">
 
         <View
             android:layout_width="match_parent"
@@ -32,35 +34,36 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingBottom="10dp"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp">
+            android:paddingTop="10dp">
 
             <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp">
+                android:paddingBottom="3dp"
+                android:paddingTop="3dp">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Total Amount"
                     android:textColor="@color/orderReview_priceHeading"
-                    android:textSize="15sp"
-                    android:text="Total Amount"/>
+                    android:textSize="15sp" />
 
-                <RelativeLayout android:layout_width="0dp"
-                    android:layout_weight="1"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end">
 
-                    <TextView android:id="@+id/cart_body_subtotal"
-                        android:layout_height="wrap_content"
+                    <TextView
+                        android:id="@+id/cart_body_subtotal"
                         android:layout_width="wrap_content"
-                        android:textSize="15sp"
-                        />
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp" />
 
                 </RelativeLayout>
 
@@ -70,21 +73,22 @@
                 android:id="@+id/pepper_cash_row"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingTop="3dp"
+                android:layout_marginBottom="5dp"
                 android:paddingBottom="3dp"
-                android:layout_marginBottom="5dp">
+                android:paddingTop="3dp">
 
                 <TextView
                     android:layout_width="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:layout_height="wrap_content"
+                    android:text="Items"
                     android:textColor="@color/orderReview_priceHeading"
-                    android:textSize="15sp"
-                    android:text="Items"/>
+                    android:textSize="15sp" />
 
-                <RelativeLayout android:layout_width="0dp"
-                    android:layout_weight="1"
+                <RelativeLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="end">
 
                     <TextView
@@ -93,16 +97,16 @@
                         android:layout_height="wrap_content"
                         android:text="-"
                         android:textColor="@color/previousOrder_orderId_title"
-                        android:visibility="gone"/>
+                        android:visibility="gone" />
 
                     <TextView
                         android:id="@+id/review_pepper_cash"
-                        android:layout_toRightOf="@id/minus_sign"
-                        android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
-                        android:textSize="15sp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="0.0"/>
+                        android:layout_toRightOf="@id/minus_sign"
+                        android:text="0.0"
+                        android:textSize="15sp" />
 
                 </RelativeLayout>
 
@@ -114,12 +118,12 @@
             android:id="@+id/place_order_btn"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/brand_btn"
-            android:textColor="@color/white"
             android:layout_marginBottom="16dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:text="Schedule Order" />
+            android:background="@drawable/brand_btn"
+            android:text="Schedule Order"
+            android:textColor="@color/white" />
     </LinearLayout>
 
 </RelativeLayout>

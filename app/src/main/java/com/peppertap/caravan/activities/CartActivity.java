@@ -5,12 +5,15 @@ import android.view.MenuItem;
 
 import com.peppertap.caravan.R;
 
-public class FaqActivity extends BaseActivity {
+/**
+ * Created by KhushbooGupta on 12/19/15.
+ */
+public class CartActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.faq_main);
+        setContentView(R.layout.cart);
     }
 
     @Override
@@ -24,6 +27,10 @@ public class FaqActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean useFabButton(){
+        return false;
+    }
+    @Override
     protected void setUpNavigationView() {
 
     }
@@ -36,13 +43,5 @@ public class FaqActivity extends BaseActivity {
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }
