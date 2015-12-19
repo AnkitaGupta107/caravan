@@ -14,6 +14,7 @@ public class CartActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cart);
+
     }
 
     @Override
@@ -28,6 +29,9 @@ public class CartActivity extends BaseActivity {
 
     @Override
     protected boolean useFabButton(){
+        return false;
+    }
+    protected boolean useTabInAppBar() {
         return false;
     }
     @Override

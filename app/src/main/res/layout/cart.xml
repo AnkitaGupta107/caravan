@@ -1,129 +1,453 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/order_review_content_view"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:visibility="visible">
+    android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/review_body_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/orderReview_priceBox"
-        android:background="@android:color/white"
-        android:clipToPadding="false"
-        android:divider="@color/lightGrey"
-        android:dividerHeight="1dp"
-        android:footerDividersEnabled="false"
-        android:overScrollFooter="@android:color/transparent" />
-
-    <LinearLayout
-        android:id="@+id/orderReview_priceBox"
+    <RelativeLayout
+        android:id="@+id/order_review_content_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:background="@drawable/order_review_price_bg"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="visible">
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/colorAccent"
-            android:layerType="software" />
+        <ListView
+            android:id="@+id/review_body_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/orderReview_priceBox"
+            android:background="@android:color/white"
+            android:clipToPadding="false"
+            android:divider="@color/lightGrey"
+            android:dividerHeight="1dp"
+            android:footerDividersEnabled="false"
+            android:overScrollFooter="@android:color/transparent"
+            android:visibility="gone" />
 
-        <TableLayout
+        <RelativeLayout
+            android:id="@+id/list1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:orientation="horizontal"
             android:paddingTop="10dp">
 
-            <TableRow
+            <LinearLayout
+                android:id="@+id/image_wrapper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <ImageView
+                    android:id="@+id/line_item_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/line_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/image_wrapper"
+                android:maxLines="1"
+                android:text="Taza"
+                android:textColor="@color/product_title"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/line_item_wt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line_item_title"
+                android:layout_toRightOf="@+id/image_wrapper"
+                android:text="500gm"
+                android:textColor="@color/product_attribute"
+                android:textSize="14sp" />
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="3dp"
-                android:paddingTop="3dp">
+                android:layout_below="@+id/line_item_wt"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/image_wrapper">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/mrp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Total Amount"
-                    android:textColor="@color/orderReview_priceHeading"
-                    android:textSize="15sp" />
+                    android:layout_centerVertical="true"
+                    android:text="500"
+                    android:textColor="#4a4a4a" />
 
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end">
-
-                    <TextView
-                        android:id="@+id/cart_body_subtotal"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15sp" />
-
-                </RelativeLayout>
-
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/pepper_cash_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:paddingBottom="3dp"
-                android:paddingTop="3dp">
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:id="@+id/cross"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:text="Items"
-                    android:textColor="@color/orderReview_priceHeading"
-                    android:textSize="15sp" />
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@+id/mrp"
+                    android:text="X"
+                    android:textColor="#4a4a4a" />
 
-                <RelativeLayout
-                    android:layout_width="0dp"
+                <EditText
+                    android:id="@+id/quantity"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="end">
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/cross"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/product_attribute" />
 
-                    <TextView
-                        android:id="@+id/minus_sign"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="-"
-                        android:textColor="@color/previousOrder_orderId_title"
-                        android:visibility="gone" />
 
-                    <TextView
-                        android:id="@+id/review_pepper_cash"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:layout_toRightOf="@id/minus_sign"
-                        android:text="0.0"
-                        android:textSize="15sp" />
+                <TextView
+                    android:id="@+id/total_mrp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@+id/equal"
+                    android:text="500"
+                    android:textColor="#4a4a4a"
+                    android:textSize="16sp" />
 
-                </RelativeLayout>
 
-            </TableRow>
+            </RelativeLayout>
 
-        </TableLayout>
+        </RelativeLayout>
 
-        <Button
-            android:id="@+id/place_order_btn"
-            android:layout_width="fill_parent"
+        <View
+            android:id="@+id/list2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/list1"
+            android:background="@color/divider_color"
+            android:layerType="software" />
+
+        <RelativeLayout
+            android:id="@+id/list4"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/brand_btn"
-            android:text="Schedule Order"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            android:layout_below="@+id/list2"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
 
-</RelativeLayout>
+            <LinearLayout
+                android:id="@+id/image_wrapper1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/line_item_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/image_wrapper1"
+                android:maxLines="1"
+                android:text="Taza"
+                android:textColor="@color/product_title"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/line_item_wt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line_item_title1"
+                android:layout_toRightOf="@+id/image_wrapper1"
+                android:text="500gm"
+                android:textColor="@color/product_attribute"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_item_wt1"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/image_wrapper1">
+
+                <TextView
+                    android:id="@+id/mrp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="500"
+                    android:textColor="#4a4a4a" />
+
+
+                <TextView
+                    android:id="@+id/cross1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@+id/mrp1"
+                    android:text="X"
+                    android:textColor="#4a4a4a" />
+
+                <EditText
+                    android:id="@+id/quantity1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/cross1"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/product_attribute" />
+
+
+                <TextView
+                    android:id="@+id/total_mrp1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@+id/equal"
+                    android:text="500"
+                    android:textColor="#4a4a4a"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/list3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@+id/list4"
+            android:background="@color/divider_color"
+            android:layerType="software" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/list3"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/image_wrapper2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="5dp">
+
+                <ImageView
+
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:padding="5dp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/line_item_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/image_wrapper2"
+                android:maxLines="1"
+                android:text="Taza"
+                android:textColor="@color/product_title"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/line_item_wt2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/line_item_title2"
+                android:layout_toRightOf="@+id/image_wrapper2"
+                android:text="500gm"
+                android:textColor="@color/product_attribute"
+                android:textSize="14sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/line_item_wt2"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/image_wrapper2">
+
+                <TextView
+                    android:id="@+id/mrp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="500"
+                    android:textColor="#4a4a4a" />
+
+
+                <TextView
+                    android:id="@+id/cross2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_toRightOf="@+id/mrp2"
+                    android:text="X"
+                    android:textColor="#4a4a4a" />
+
+                <EditText
+                    android:id="@+id/quantity2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/cross2"
+                    android:singleLine="true"
+                    android:text="0"
+                    android:textColor="@color/product_attribute" />
+
+
+                <TextView
+                    android:id="@+id/total_mrp2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@+id/equal"
+                    android:text="500"
+                    android:textColor="#4a4a4a"
+                    android:textSize="16sp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/orderReview_priceBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/order_review_price_bg"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                android:layerType="software" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="3dp"
+                    android:paddingTop="3dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Total Amount"
+                        android:textColor="@color/orderReview_priceHeading"
+                        android:textSize="15sp" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end">
+
+                        <TextView
+                            android:id="@+id/cart_body_subtotal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15sp" />
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/pepper_cash_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:paddingBottom="3dp"
+                    android:paddingTop="3dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:text="Items"
+                        android:textColor="@color/orderReview_priceHeading"
+                        android:textSize="15sp" />
+
+                    <RelativeLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end">
+
+                        <TextView
+                            android:id="@+id/minus_sign"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:textColor="@color/previousOrder_orderId_title"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/review_pepper_cash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toRightOf="@id/minus_sign"
+                            android:text="0.0"
+                            android:textSize="15sp" />
+
+                    </RelativeLayout>
+
+                </TableRow>
+
+            </TableLayout>
+
+            <Button
+                android:id="@+id/place_order_btn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/brand_btn"
+                android:text="Schedule Order"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

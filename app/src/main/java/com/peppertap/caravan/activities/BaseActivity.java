@@ -15,6 +15,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.peppertap.caravan.CaravanApp;
 import com.peppertap.caravan.R;
@@ -49,7 +50,7 @@ public abstract class BaseActivity extends MinimalActivity implements
     @InjectView(R.id.fab_button)
     protected FloatingActionButton mFabButton;
     @InjectView(R.id.coordinator_layout)
-    protected CoordinatorLayout coordinatorLayout;
+    protected RelativeLayout coordinatorLayout;
 
     protected static final int NONE = 0;
 
@@ -212,9 +213,9 @@ public abstract class BaseActivity extends MinimalActivity implements
         }
     }
 
-    public CoordinatorLayout getCoordinatorLayout() {
-        return coordinatorLayout;
-    }
+//    public CoordinatorLayout getCoordinatorLayout() {
+//        return coordinatorLayout;
+//    }
 
     public CaravanApp getGlobalApplication() {
         return globalApplication;
