@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/carticon_bg"
+    tools:context="com.peppertap.app.CheckoutFragments.DeliveryTimeFragment">
+
+    <TextView
+        android:id="@+id/slot_titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose Preference"
+        android:textSize="18sp"
+        android:padding="15dp"
+        android:textColor="#3c4049"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+
+    <RadioGroup
+        android:id="@+id/radio_gp_day"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/slot_titleBar"
+        android:orientation="vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+
+        <RadioButton
+            android:id="@+id/today"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/timeSlot_selectTime"
+            android:text="Daily"
+            android:button="@null"
+            android:drawablePadding="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="16sp"
+            android:drawableLeft="@drawable/checkout_radio_selector"/>
+
+        <RadioButton
+            android:id="@+id/tomorrow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/timeSlot_selectTime"
+            android:button="@null"
+            android:textSize="16sp"
+            android:drawablePadding="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:drawableLeft="@drawable/checkout_radio_selector"
+            android:text="Weekly" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/radio_gp_day"
+        android:layout_alignParentRight="true">
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CANCEL"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textColor="#4c4c4e"
+            android:textSize="15sp"
+            android:background="@null"
+            style="?android:attr/buttonBarButtonStyle"/>
+
+        <Button
+            android:id="@+id/set_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SET"
+            android:textSize="15sp"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:textColor="#4c4c4e"
+            android:background="@null"
+            style="?android:attr/buttonBarButtonStyle"/>
+    </LinearLayout>
+
+
+</RelativeLayout>
