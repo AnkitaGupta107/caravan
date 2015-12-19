@@ -15,7 +15,7 @@ import butterknife.InjectView;
  * Created by samvedana on 19/12/15.
  */
 public class DashboardFragment extends BaseFragment {
-
+/*
     @InjectView(R.id.order_item_order_id)
     TextView order_id;
     @InjectView(R.id.order_item_order_date)
@@ -24,7 +24,7 @@ public class DashboardFragment extends BaseFragment {
     ListView orderList;
     @InjectView(R.id.payment_due)
     TextView paymentsDue;
-
+*/
     @Override
     protected void setUpContentView() {
         fragment_layout_res_id = R.layout.dashboard;

@@ -174,7 +174,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
         ResponseListener<JsonObject> responseListener = new ResponseListener<JsonObject>() {
             @Override
             public void onResponse(JsonObject result) {
-                //Timber.d(result.toString());
+                Timber.d(result.toString());
 
                 if (JsonHelper.getValueOrNone(result, "status").equals("OK")) {
                     ProductHelper productHelper = ProductHelper.fromJson(result);
@@ -195,8 +195,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Timber.e("something went wrong while fetching products " + error.getMessage());
-                boolean bypassDialog = false;
-                boolean nwError = false;
+                mFragment.hideProgressDialog();
                 if (error instanceof TimeoutError || error instanceof NoConnectionError || error instanceof NetworkError) {
                     mFragment.showNetworkErrorView(new RetryCallback() {
                         @Override
@@ -204,12 +203,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
                             performSearch(query);
                         }
                     });
-                    nwError = true;
                 } else {
                     mFragment.showAlertDialog("Error", "Oops! Something went wrong please try again");
                 }
-                mFragment.hideProgressDialog();
-                mFragment.showEmptyView("No products found", "Try searching with a different keyword or for alternatives");
             }
         };
 

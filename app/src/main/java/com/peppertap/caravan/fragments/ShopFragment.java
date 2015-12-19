@@ -40,9 +40,4 @@ public class ShopFragment extends BaseFragment {
         return view;
     }
 
-//    @OnClick(R.id.schedule_order_btn)
-//    public void scheduleOrderClick() {
-//
-//    }
-
 }
