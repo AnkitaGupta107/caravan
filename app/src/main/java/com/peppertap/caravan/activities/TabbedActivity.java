@@ -33,12 +33,6 @@ public abstract class TabbedActivity extends BaseActivity {
     protected int navMenuId = NONE;
     int selectedTabPosition;
 
-    protected ActivityType activityType = ActivityType.NONE;
-
-    public enum ActivityType {
-        HOME, CART, NONE
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,34 +40,14 @@ public abstract class TabbedActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
     }
 
-    protected abstract void setActivityType();
-
     private void initialise() {
-        setActivityType();
-        if (activityType == ActivityType.HOME) {
-            navMenuId = R.menu.nav_main;
-        } else if (activityType == ActivityType.CART) {
-            //diffrent menu? same menu? no menu?
-            navMenuId = R.menu.nav_main;
-        } else {
-            //this case cannot be possible
-            throw new RuntimeException("activity type == NONE");
-        }
+        navMenuId = R.menu.nav_main;
     }
 
     protected void configureAppBarTabs() {
-        switch (activityType) {
-            case HOME:
-                mPagerAdaptor = new CaravanFragPagerAdapter(this, getSupportFragmentManager(), ActivityType.HOME);
-                //navigationView.getMenu().getItem(0).setChecked(true);
-                break;
-            case CART:
-                mPagerAdaptor = new CaravanFragPagerAdapter(this, getSupportFragmentManager(), ActivityType.CART);
-                //navigationView.getMenu().getItem(1).setChecked(true);
-                break;
-            default:
-                Timber.e("Tabs should not exist");
-        }
+        mPagerAdaptor = new CaravanFragPagerAdapter(this, getSupportFragmentManager());
+        navigationView.getMenu().getItem(0).setChecked(true);
+
         mTabLayout.setTabsFromPagerAdapter(mPagerAdaptor);
         mViewPager.setAdapter(mPagerAdaptor);
         mTabLayout.setupWithViewPager(mViewPager);
@@ -82,15 +56,10 @@ public abstract class TabbedActivity extends BaseActivity {
         selectedTabPosition = 0;
         //mPageChangeListener.onPageSelected(0);
 
-        if (activityType == ActivityType.CART) {
-            mDrawerToggle.setDrawerIndicatorEnabled(false);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
-        } else {
-            mDrawerToggle.setDrawerIndicatorEnabled(true);
-            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-            getSupportActionBar().setHomeButtonEnabled(false);
-        }
+        mDrawerToggle.setDrawerIndicatorEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setHomeButtonEnabled(false);
+
         mDrawerToggle.syncState();
     }
 
@@ -174,11 +143,6 @@ public abstract class TabbedActivity extends BaseActivity {
 
     @Override
     protected void configureToolbar() {
-        //todo
-        if (activityType == ActivityType.HOME) {
-            getSupportActionBar().setTitle("Home");
-        } else {
-            getSupportActionBar().setTitle("Cart");
-        }
+        getSupportActionBar().setTitle("Home");
     }
 }
