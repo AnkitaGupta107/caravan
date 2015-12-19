@@ -1,16 +1,22 @@
 package com.peppertap.caravan.activities;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.peppertap.caravan.BuildConfig;
 import com.peppertap.caravan.R;
 import com.peppertap.caravan.adapters.CaravanFragPagerAdapter;
+import com.peppertap.caravan.fragments.DashboardFragment;
+import com.peppertap.caravan.fragments.ShopFragment;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,6 +39,8 @@ public abstract class TabbedActivity extends BaseActivity {
     protected int navMenuId = NONE;
     int selectedTabPosition;
 
+    FrameLayout mContainer;
+
     protected ActivityType activityType = ActivityType.NONE;
 
     public enum ActivityType {
@@ -44,6 +52,8 @@ public abstract class TabbedActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         initialise();
         setContentView(R.layout.activity_main);
+
+        mContainer = (FrameLayout) findViewById(R.id.container);
     }
 
     protected abstract void setActivityType();
@@ -121,55 +131,27 @@ public abstract class TabbedActivity extends BaseActivity {
         //Closing drawer on item click
         mDrawerLayout.closeDrawers();
         Map<String, String> params = new HashMap<String, String>();
-/*
+
         //Check to see which item was being clicked and perform appropriate action
         switch (menuItem.getItemId()) {
             //Replacing the main content with ContentFragment Which is our Inbox View;
-            case R.id.orders:
+            case R.id.dashboard:
 
-                if (globalApplication.getAppData().getAppType() == PartnersApp.AppType.STORE) {
-                    changeScreenType(TabbedActivityScreenType.STORE_APP_ORDERS_SCREEN);
-                } else {
-                    changeScreenType(TabbedActivityScreenType.CHAIN_APP_HOME_SCREEN);
-                }
-                params.put(AnalyticsStrings.DrawerParams.MENU, "orders");
-                EventBus.getDefault().post(new DataEvents.PostFlurryEvent(new Event(AnalyticsStrings.ACTION_DRAWER, params)));
                 return true;
-            case R.id.products:
-                if (globalApplication.getAppData().getAppType() == PartnersApp.AppType.STORE) {
-                    changeScreenType(TabbedActivityScreenType.STORE_APP_PRODUCTS_SCREEN);
-                }
-                params.put(AnalyticsStrings.DrawerParams.MENU, "products");
-                EventBus.getDefault().post(new DataEvents.PostFlurryEvent(new Event(AnalyticsStrings.ACTION_DRAWER, params)));
-                return true;
-            case R.id.stores:
-                changeScreenType(TabbedActivityScreenType.CHAIN_APP_STORE_SCREEN);
-                params.put(AnalyticsStrings.DrawerParams.MENU, "stores");
-                EventBus.getDefault().post(new DataEvents.PostFlurryEvent(new Event(AnalyticsStrings.ACTION_DRAWER, params)));
-                return true;
-            case R.id.change_password:
-                startActivity(new Intent(this,ChangePasswordActivity.class));
-                return true;
+
             case R.id.contact:
-                params.put(AnalyticsStrings.DrawerParams.MENU, "contact");
                 callToCustomerCare();
-                EventBus.getDefault().post(new DataEvents.PostFlurryEvent(new Event(AnalyticsStrings.ACTION_DRAWER, params)));
                 return true;
-            case R.id.logout:
-                globalApplication.clearAppData();
-                globalApplication.clearCookieCache();
-                params.put(AnalyticsStrings.DrawerParams.MENU, "logout");
-                EventBus.getDefault().post(new DataEvents.PostFlurryEvent(new Event(AnalyticsStrings.ACTION_DRAWER, params)));
-                Intent intent = new Intent(this, LoginActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+
+            case R.id.faq:
+
                 return true;
+
             default:
                 return false;
         }
-        */
 
-        return false;
+
     }
 
     @Override
@@ -180,5 +162,11 @@ public abstract class TabbedActivity extends BaseActivity {
         } else {
             getSupportActionBar().setTitle("Cart");
         }
+    }
+
+    public void callToCustomerCare() {
+        Intent intent = new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:0123456789"));
+        startActivity(intent);
     }
 }
