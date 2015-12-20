@@ -1,7 +1,6 @@
 package com.peppertap.caravan.activities;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -16,14 +15,8 @@ import de.greenrobot.event.EventBus;
 public class HomeActivity extends TabbedActivity {
 
     @Override
-    protected void setActivityType() {
-        activityType = ActivityType.HOME;
-    }
-
-    @Override
     protected void onFabButtonClick() {
-        //todo take to cart
-        startActivity(new Intent(this,CartActivity.class));
+        startActivity(new Intent(this, CartActivity.class));
     }
 
     @Override

@@ -39,6 +39,15 @@ public class CheckoutDetailActivity extends BaseActivity {
     }
 
     @Override
+    protected boolean useFabButton(){
+        return false;
+    }
+
+    protected boolean useTabInAppBar() {
+        return false;
+    }
+
+    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
     }

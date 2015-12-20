@@ -6,20 +6,31 @@ import android.view.MenuItem;
 import com.peppertap.caravan.R;
 
 /**
- * Created by KhushbooGupta on 12/19/15.
  */
 public class CheckoutActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //initialise();
         setContentView(R.layout.checkout_detail);
+    }
 
+    @Override
+    protected boolean useTabInAppBar() {
+        return false;
+    }
+
+    @Override
+    protected boolean useNavDrawer() {
+        return false;
     }
 
     @Override
     protected void configureToolbar() {
-
+        getSupportActionBar().setTitle("Review Cart");
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -27,13 +38,6 @@ public class CheckoutActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected boolean useFabButton(){
-        return false;
-    }
-    protected boolean useTabInAppBar() {
-        return false;
-    }
     @Override
     protected void setUpNavigationView() {
 
@@ -45,7 +49,12 @@ public class CheckoutActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    protected boolean useFabButton() {
+        return false;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem menuItem) {
         return false;
     }
 }
