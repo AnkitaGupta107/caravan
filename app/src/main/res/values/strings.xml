@@ -47,4 +47,5 @@
     <string name="total_amount3">\u20B99,750</string>
     <string name="total_items">3</string>
     <string name="delivered_order"><sup>*</sup>Delivered Order</string>
+    <string name="resumeBtn">Resume</string>
 </resources>
