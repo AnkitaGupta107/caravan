@@ -51,6 +51,10 @@ public class OrdersActivity extends BaseActivity {
         return false;
     }
 
+    protected boolean useTabInAppBar() {
+        return false;
+    }
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;

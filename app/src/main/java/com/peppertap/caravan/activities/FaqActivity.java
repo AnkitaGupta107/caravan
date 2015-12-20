@@ -28,6 +28,10 @@ public class FaqActivity extends BaseActivity {
 
     }
 
+    protected boolean useTabInAppBar() {
+        return false;
+    }
+
     @Override
     protected void onFabButtonClick() {
 
