@@ -1,6 +1,7 @@
 package com.peppertap.caravan.activities;
 
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -71,5 +72,10 @@ public class CheckoutDetailActivity extends BaseActivity
         fr.show(getFragmentManager(), "SlotSelection");
     }
 
+    @OnClick(R.id.proceed_btn)
+    public void placeOrder() {
+        Intent intent = new Intent(this, CheckoutConfirmActivity.class);
+        startActivity(intent);
+    }
 
 }
