@@ -137,7 +137,7 @@ public class PrimaryCartHelper extends BaseCartHelper {
         return quantity;
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ProductAddEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ProductAddEvent e){
         String prod_code = null;
 
         ProductHelper.ProductGaClassification classification;
@@ -148,7 +148,12 @@ public class PrimaryCartHelper extends BaseCartHelper {
 
         if(e.getLineItem() != null){
             lineItem = e.getLineItem();
-            addProduct(lineItem);
+            if (e.wereProductsToBeAddedProgramatically()) {
+                addProduct(lineItem, e.getQt());
+            }
+            else {
+                addProduct(lineItem);
+            }
             prod_code = lineItem.getProduct_code();
             classification = LineItemRepository.getInstance(globalApplication).getProductGaClassification(lineItem);
             ga_string = classification.toGaString();
@@ -171,13 +176,18 @@ public class PrimaryCartHelper extends BaseCartHelper {
         }
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ProductReduceEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ProductReduceEvent e){
         String prod_code = null;
         ProductHelper.ProductGaClassification classification;
         String ga_string = "";
         if(e.getLineItem() != null){
             LineItem lineItem = e.getLineItem();
-            reduceProduct(lineItem);
+            if (e.isRemoveProduct()) {
+                removeProduct(lineItem);
+            }
+            else {
+                reduceProduct(lineItem);
+            }
             prod_code = lineItem.getProduct_code();
             classification = LineItemRepository.getInstance(globalApplication).getProductGaClassification(lineItem);
             ga_string = classification.toGaString();
@@ -207,13 +217,13 @@ public class PrimaryCartHelper extends BaseCartHelper {
         }
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.AddLineItemEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.AddLineItemEvent e){
         LineItem item = e.getLineItem();
         item.setCartID(new Long(1));
         LineItemRepository.getInstance(globalApplication).addLineItem(item);
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ReduceLineItemEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ReduceLineItemEvent e){
         LineItem item = e.getLineItem();
         item.setCartID(new Long(1));
         LineItemRepository.getInstance(globalApplication).reduceLineItem(item);

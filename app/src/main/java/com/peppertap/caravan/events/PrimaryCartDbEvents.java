@@ -59,6 +59,7 @@ public class PrimaryCartDbEvents {
         LineItem lineItem = null;
         String source = null;
         JsonObject searchData = null;
+        boolean removeProduct = false;
         public ProductReduceEvent(ProductHelper.ProductItem item, String source){
             this.productItem = item;
             this.source = source;
@@ -66,6 +67,9 @@ public class PrimaryCartDbEvents {
         public ProductReduceEvent(LineItem item, String source){
             this.lineItem = item;
             this.source = source;
+        }
+        public void productToBeRemoved(boolean val) {
+            removeProduct = val;
         }
         public ProductHelper.ProductItem getProductItem() {
             return this.productItem;
@@ -81,6 +85,9 @@ public class PrimaryCartDbEvents {
         }
         public JsonObject getSearchData() {
             return searchData;
+        }
+        public boolean isRemoveProduct() {
+            return removeProduct;
         }
     }
 

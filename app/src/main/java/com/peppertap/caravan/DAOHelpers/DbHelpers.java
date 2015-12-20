@@ -19,7 +19,7 @@ public class DbHelpers {
     private static DbHelpers instance = null;
 
     private DbHelpers(CaravanApp app) {
-        app.getDbWrapper();
+        wrapper = app.getDbWrapper();
     }
 
     public static DbHelpers getInstance(CaravanApp app){

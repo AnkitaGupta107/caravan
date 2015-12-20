@@ -1,12 +1,12 @@
 package com.peppertap.caravan.viewHolders;
 
 import android.content.res.Resources;
-import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,12 +24,13 @@ import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import de.greenrobot.event.EventBus;
+import pepperTap.LineItem;
 import timber.log.Timber;
 
 /**
  * Created by samvedana on 19/12/15.
  */
-public class ProductHolder extends RecyclerView.ViewHolder {
+public class LineItemHolder extends RecyclerView.ViewHolder {
     Resources resources;
 
     @InjectView(R.id.line_item_title)
@@ -44,14 +45,15 @@ public class ProductHolder extends RecyclerView.ViewHolder {
     EditText quantity;
     @InjectView(R.id.line_item_image)
     ImageView image;
+    @InjectView(R.id.addToCartBtn)
+    Button addToCartButton;
 
     int num_qt;
 
-    ProductHelper.ProductGroup data;
-    ProductHelper.ProductItem item;
+    LineItem item;
     CaravanApp globalApplication;
 
-    public ProductHolder(View itemView, CaravanApp app) {
+    public LineItemHolder(View itemView, CaravanApp app) {
         super(itemView);
         globalApplication = app;
         ButterKnife.inject(this, itemView);
@@ -76,6 +78,7 @@ public class ProductHolder extends RecyclerView.ViewHolder {
                     if (num > 0) {
                         num_qt = num;
                         calculateAndDisplayTotal();
+                        updateLineItem();
                     }
                 } catch (NumberFormatException e) {
                     //e.printStackTrace();
@@ -87,11 +90,11 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         quantity.addTextChangedListener(editTextWatcher);
     }
 
-    public void bindData(ProductHelper.ProductGroup group) {
-        data = group;
-        item = group.getSelected();
+    public void bindData(LineItem lineItem) {
+        item = lineItem;
+        addToCartButton.setVisibility(View.GONE);
 
-        String url = Urls.getAppendedMediaUrl(item);
+        String url = Urls.getAppendedMediaUrl(item.getImage_url());
         Ion.with(image)
                 .placeholder(R.drawable.placeholder_image)
                 .error(R.drawable.placeholder_image)
@@ -100,29 +103,8 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         title.setText(item.getTitle());
         price.setText("\u20B9"+ item.getSale_price());
         attribute.setText(item.getDisplay_attribute());
-        new UpdateQuantityFromCart(this).execute();
-    }
-
-    private class UpdateQuantityFromCart extends AsyncTask<Void, Void, Integer> {
-        private ProductHolder adapterHolder;
-
-        public UpdateQuantityFromCart(ProductHolder adapterHolder){
-            this.adapterHolder = adapterHolder;
-        }
-
-        @Override
-        protected Integer doInBackground(Void... params) {
-            return PrimaryCartHelper.getInstance(globalApplication)
-                    .getQuantityInCart(item.getProduct_id());
-        }
-
-        protected void onProgressUpdate(Integer... progress) {}
-
-        protected void onPostExecute(Integer result) {
-            num_qt = result;
-            adapterHolder.quantity.setText(num_qt + "");
-            adapterHolder.calculateAndDisplayTotal();
-        }
+        num_qt = item.getQuantity();
+        calculateAndDisplayTotal();
     }
 
     private void calculateAndDisplayTotal() {
@@ -130,12 +112,18 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         total.setText("\u20B9"+ MoneyHelper.toMoneyTwoDecimals(sale_total));
     }
 
-    @OnClick(R.id.addToCartBtn)
-    public void addToCart() {
-        if (num_qt > 0) {
-            PrimaryCartDbEvents.ProductAddEvent event = new PrimaryCartDbEvents.ProductAddEvent(item, "Shop Page");
-            event.productsToBeAddedProgramaticallyWithQt(num_qt);
-            EventBus.getDefault().post(event);
+    public void updateLineItem() {
+        if (num_qt != item.getQuantity()) {
+            if (num_qt > 0) {
+                PrimaryCartDbEvents.ProductAddEvent event = new PrimaryCartDbEvents.ProductAddEvent(item, "Cart Page");
+                event.productsToBeAddedProgramaticallyWithQt(num_qt);
+                EventBus.getDefault().post(event);
+            }
+            else {
+                PrimaryCartDbEvents.ProductReduceEvent event = new PrimaryCartDbEvents.ProductReduceEvent(item, "Cart Page");
+                event.productToBeRemoved(true);
+                EventBus.getDefault().post(event);
+            }
         }
     }
 }

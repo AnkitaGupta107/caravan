@@ -239,6 +239,29 @@ public class BaseCartHelper {
         EventBus.getDefault().post(new PrimaryCartDbEvents.AddLineItemEvent(lineItem));
     }
 
+    public void addProduct(LineItem item, int new_qt){
+        String addedId = item.getProduct_code();
+        LineItem lineItem;
+        if(lineItemHelpers.containsKey(addedId)){
+            lineItem = lineItemHelpers.get(addedId);
+            lineItem.setQuantity(new_qt);
+        }
+        else{
+            noItems += 1;
+            lineItem = item;
+            lineItem.setQuantity(new_qt);
+        }
+        lineItemHelpers.put(item.getProduct_code(), lineItem);
+        addToClassificationQuantity(lineItem.getClassification_id());
+        total += lineItem.getSale_price();
+        sub_total += lineItem.getMrp();
+        savings = sub_total - total;
+        is_empty = false;
+        Log.d(TAG, "successful add operation");
+        EventBus.getDefault().post(new CartEvents.ShowCartFragment());
+        EventBus.getDefault().post(new PrimaryCartDbEvents.AddLineItemEvent(lineItem));
+    }
+
     public void reduceProduct(LineItem item){
         String reducedId = item.getProduct_code();
         LineItem lineItem;
@@ -263,6 +286,20 @@ public class BaseCartHelper {
             EventBus.getDefault().post(new CartEvents.ShowCartFragment());
             EventBus.getDefault().post(new PrimaryCartDbEvents.ReduceLineItemEvent(lineItem));
         }
+    }
+
+    public void removeProduct(LineItem item) {
+        noItems -= 1;
+        lineItemHelpers.remove(item.getProduct_code());
+        if(noItems == 0){
+            is_empty = true;
+        }
+        total -= item.getSale_price();
+        sub_total -= item.getMrp();
+        savings = sub_total - total;
+        Log.d(TAG, "successful reduce operation");
+        EventBus.getDefault().post(new CartEvents.ShowCartFragment());
+        EventBus.getDefault().post(new PrimaryCartDbEvents.ReduceLineItemEvent(item));
     }
 
     public JsonObject getAppCartAsJsonObject(Context context) {
