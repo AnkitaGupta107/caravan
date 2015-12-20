@@ -22,13 +22,13 @@
         <item
             android:id="@+id/faq"
             android:checked="false"
-            android:icon="@drawable/drawer_icon_contact"
+            android:icon="@drawable/drawer_icon_faq"
             android:title="FAQ" />
 
         <item
             android:id="@+id/profile"
             android:checked="false"
-            android:icon="@drawable/drawer_icon_contact"
+            android:icon="@drawable/drawer_icon_refer"
             android:title="Profile" />
         <item
             android:id="@+id/logout"

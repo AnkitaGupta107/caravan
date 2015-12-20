@@ -106,6 +106,8 @@
                     android:layout_toRightOf="@+id/cross"
                     android:singleLine="true"
                     android:text="@string/qty1"
+                    android:inputType="number"
+                    android:textSize="14sp"
                     android:textColor="@color/product_attribute" />
 
 
@@ -214,6 +216,8 @@
                     android:layout_toRightOf="@+id/cross1"
                     android:singleLine="true"
                     android:text="@string/qty2"
+                    android:inputType="number"
+                    android:textSize="14sp"
                     android:textColor="@color/product_attribute" />
 
 
@@ -321,6 +325,8 @@
                     android:layout_toRightOf="@+id/cross2"
                     android:singleLine="true"
                     android:text="@string/qty3"
+                    android:inputType="number"
+                    android:textSize="14sp"
                     android:textColor="@color/product_attribute" />
 
 
