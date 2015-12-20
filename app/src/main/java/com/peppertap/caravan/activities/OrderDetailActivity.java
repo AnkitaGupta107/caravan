@@ -1,7 +1,6 @@
 package com.peppertap.caravan.activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -9,14 +8,12 @@ import android.view.View;
 
 import com.peppertap.caravan.R;
 
-import de.greenrobot.event.EventBus;
-
-public class OrdersActivity extends BaseActivity {
+public class OrderDetailActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.order_list);
+        setContentView(R.layout.order_details);
     }
 
 
@@ -38,12 +35,6 @@ public class OrdersActivity extends BaseActivity {
 
     }
 
-    public void order_detail(View view)
-    {
-        Intent intent = new Intent(this, OrderDetailActivity.class);
-        startActivity(intent);
-    }
-
 
     @Override
     protected void setUpNavigationView() {
@@ -57,10 +48,6 @@ public class OrdersActivity extends BaseActivity {
 
     @Override
     protected boolean useFabButton(){
-        return false;
-    }
-
-    protected boolean useTabInAppBar() {
         return false;
     }
 

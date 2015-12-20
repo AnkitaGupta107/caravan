@@ -76,10 +76,13 @@
                 </TableRow>
 
                 <TableRow
+                    android:id="@+id/first_order_row"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp">
+                    android:paddingBottom="10dp"
+                    android:clickable="true"
+                    android:onClick="order_detail">
 
                     <TextView
                         android:layout_width="0dp"

@@ -71,7 +71,8 @@
                         android:background="@drawable/brand_btn"
                         android:text="Track Order"
                         android:textColor="@android:color/white"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:onClick="order_detail"/>
 
                 </LinearLayout>
 

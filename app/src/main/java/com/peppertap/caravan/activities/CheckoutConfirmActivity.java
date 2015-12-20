@@ -29,6 +29,12 @@ public class CheckoutConfirmActivity extends BaseActivity {
 
     }
 
+    public void order_detail(View view)
+    {
+        Intent intent = new Intent(this, OrderDetailActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected boolean useFabButton(){
         return false;

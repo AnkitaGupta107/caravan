@@ -37,6 +37,7 @@
             android:label="@string/title_activity_checkout_detail"
             android:theme="@style/AppTheme" />
         <activity android:name=".activities.CheckoutConfirmActivity" />
+        <activity android:name=".activities.OrderDetailActivity" />
     </application>
 
 </manifest>
