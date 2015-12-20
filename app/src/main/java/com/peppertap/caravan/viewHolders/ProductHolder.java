@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.koushikdutta.ion.Ion;
 import com.peppertap.caravan.CaravanApp;
 import com.peppertap.caravan.R;
+import com.peppertap.caravan.activities.HomeActivity;
 import com.peppertap.caravan.cartHelpers.PrimaryCartHelper;
 import com.peppertap.caravan.data.ProductHelper;
 import com.peppertap.caravan.events.PrimaryCartDbEvents;
@@ -50,10 +51,12 @@ public class ProductHolder extends RecyclerView.ViewHolder {
     ProductHelper.ProductGroup data;
     ProductHelper.ProductItem item;
     CaravanApp globalApplication;
+    HomeActivity activity;
 
-    public ProductHolder(View itemView, CaravanApp app) {
+    public ProductHolder(View itemView, CaravanApp app, HomeActivity activity) {
         super(itemView);
         globalApplication = app;
+        this.activity = activity;
         ButterKnife.inject(this, itemView);
         resources = itemView.getResources();
 
@@ -135,6 +138,7 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         if (num_qt > 0) {
             PrimaryCartDbEvents.ProductAddEvent event = new PrimaryCartDbEvents.ProductAddEvent(item, "Shop Page");
             event.productsToBeAddedProgramaticallyWithQt(num_qt);
+            activity.showToastMsg(item.getTitle() + " added to cart (" + num_qt + " units)");
             EventBus.getDefault().post(event);
         }
     }

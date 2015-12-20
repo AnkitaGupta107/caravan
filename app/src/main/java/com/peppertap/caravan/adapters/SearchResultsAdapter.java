@@ -20,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.google.gson.JsonObject;
 import com.peppertap.caravan.CaravanApp;
 import com.peppertap.caravan.R;
+import com.peppertap.caravan.activities.HomeActivity;
 import com.peppertap.caravan.data.ProductHelper;
 import com.peppertap.caravan.fragments.ShopFragment;
 import com.peppertap.caravan.network.Urls;
@@ -128,7 +129,8 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
             case ITEM_TYPE_PRODUCT:
                 View listItemView = LayoutInflater.from(parent.getContext())
                         .inflate(R.layout.shop_line_item, parent, false);
-                ProductHolder productHolder = new ProductHolder(listItemView, globalApplication);
+                ProductHolder productHolder = new ProductHolder(listItemView, globalApplication,
+                        (HomeActivity) mFragment.getActivity());
                 return productHolder;
             default:
                 return null;

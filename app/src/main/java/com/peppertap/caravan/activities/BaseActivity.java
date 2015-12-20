@@ -213,10 +213,6 @@ public abstract class BaseActivity extends MinimalActivity implements
         }
     }
 
-//    public CoordinatorLayout getCoordinatorLayout() {
-//        return coordinatorLayout;
-//    }
-
     public CaravanApp getGlobalApplication() {
         return globalApplication;
     }

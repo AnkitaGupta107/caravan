@@ -1,12 +1,11 @@
 package com.peppertap.caravan.activities;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.widget.Toast;
 
 import com.peppertap.caravan.DAOHelpers.DbHelpers;
 import com.peppertap.caravan.R;
@@ -22,11 +21,13 @@ import de.greenrobot.event.EventBus;
 public class HomeActivity extends TabbedActivity {
     PrimaryCartHelper primaryCartHelper;
 
+    LayoutInflater mInflator;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         primaryCartHelper = PrimaryCartHelper.getInstance(getApplicationContext());
-        EventBus.getDefault().register(this);
+        mInflator = getLayoutInflater();
     }
 
     @Override
@@ -73,18 +74,7 @@ public class HomeActivity extends TabbedActivity {
         EventBus.getDefault().post(new DataEvents.refreshEvent(selectedTabPosition));
     }
 
-    public void onEventMainThread(CartEvents.ShowCartFragment e) {
-        if (PrimaryCartHelper.getIsEmpty(this)) {
-            mFabButton.setBackgroundColor(getResources().getColor(R.color.colorAccent));
-        }
-        else {
-            mFabButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        }
-    }
-
-    @Override
-    public void onDestroy(){
-        super.onDestroy();
-        EventBus.getDefault().unregister(this);
+    public void showToastMsg(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 }
