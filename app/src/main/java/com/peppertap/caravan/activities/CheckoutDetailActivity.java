@@ -1,5 +1,6 @@
 package com.peppertap.caravan.activities;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,10 +8,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.peppertap.caravan.R;
+import com.peppertap.caravan.fragments.SlotSelectionFragment;
 
-public class CheckoutDetailActivity extends BaseActivity {
+import butterknife.InjectView;
+import butterknife.OnClick;
+
+public class CheckoutDetailActivity extends BaseActivity
+    implements SlotSelectionFragment.OnFragmentInteractionListener {
+
+    @InjectView(R.id.slot)
+    LinearLayout slotLayout;
+    @InjectView(R.id.asap)
+    LinearLayout asapLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +63,12 @@ public class CheckoutDetailActivity extends BaseActivity {
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         return false;
+    }
+
+    @OnClick(R.id.slot)
+    public void showRepeatOptions() {
+        DialogFragment fr = new SlotSelectionFragment();
+        fr.show(getFragmentManager(), "SlotSelection");
     }
 
 

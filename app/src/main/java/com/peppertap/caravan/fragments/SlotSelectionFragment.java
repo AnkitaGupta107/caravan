@@ -21,6 +21,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.peppertap.caravan.R;
 import com.peppertap.caravan.activities.CheckoutActivity;
+import com.peppertap.caravan.activities.CheckoutDetailActivity;
 
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import butterknife.OnClick;
 public class SlotSelectionFragment extends DialogFragment {
 
     private static final String TAG = "SlotSelectionFragment";
-    CheckoutActivity parentActivity;
+    CheckoutDetailActivity parentActivity;
     LayoutInflater fragmentInflater;
 
     private OnFragmentInteractionListener mListener;
@@ -63,7 +64,7 @@ public class SlotSelectionFragment extends DialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        parentActivity = (CheckoutActivity)getActivity();
+        parentActivity = (CheckoutDetailActivity) getActivity();
         setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_DeviceDefault_Dialog);
     }
 
@@ -105,7 +106,7 @@ public class SlotSelectionFragment extends DialogFragment {
 
     public void selectSlot(JsonObject selectedSlot) {
         if (selectedSlot == null) {
-            mListener.showCustomViewToast("Please select a slot");
+            //mListener.showCustomViewToast("Please select a slot");
         }
         else {
             int selSlotId = selectedSlot.get("id").getAsInt();
@@ -134,7 +135,6 @@ public class SlotSelectionFragment extends DialogFragment {
     }
 
     public interface OnFragmentInteractionListener {
-        public void showCustomViewToast(String message);
     }
 
     @Override
