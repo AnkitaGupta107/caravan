@@ -1,5 +1,8 @@
 package com.peppertap.caravan.events;
 
+import com.peppertap.caravan.fragments.SlotSelectionFragment;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -79,6 +82,29 @@ public class UIEvents {
 
         public boolean refreshNeeded() {
             return refresh;
+        }
+    }
+
+    public static class OrderFrequencyChosen {
+        private SlotSelectionFragment.RepetitionFrequency frequency;
+
+        public OrderFrequencyChosen(SlotSelectionFragment.RepetitionFrequency f) {
+            frequency = f;
+        }
+
+        public SlotSelectionFragment.RepetitionFrequency getFrequency() {
+            return frequency;
+        }
+
+        public String getRepetitionFrequency() {
+            switch (frequency) {
+                case DAILY:
+                    return "Daily";
+                case WEEKLY:
+                    return "Weekly";
+                default:
+                    return null;
+            }
         }
     }
 }

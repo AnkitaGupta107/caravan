@@ -2,26 +2,18 @@ package com.peppertap.caravan.fragments;
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.app.Fragment;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.RadioGroup;
 
-import com.android.volley.VolleyError;
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.peppertap.caravan.R;
-import com.peppertap.caravan.activities.CheckoutActivity;
 import com.peppertap.caravan.activities.CheckoutDetailActivity;
+import com.peppertap.caravan.events.UIEvents;
 
 
 import java.util.ArrayList;
@@ -29,6 +21,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 
 
 public class SlotSelectionFragment extends DialogFragment {
@@ -46,15 +39,14 @@ public class SlotSelectionFragment extends DialogFragment {
     @InjectView(R.id.set_btn)
     Button setBtn;
 
-    private int selDay;
+    private RepetitionFrequency frequency = RepetitionFrequency.NONE;
 
     private ArrayList<JsonObject> slotArray, showSlotsArray;
 
     private View view;
 
-    private class DeliveryDay {
-        private static final int TODAY = 0;
-        private static final int TOMORROW = 1;
+    public enum RepetitionFrequency {
+        DAILY, WEEKLY, NONE
     }
 
     public SlotSelectionFragment() {
@@ -79,12 +71,10 @@ public class SlotSelectionFragment extends DialogFragment {
         dayGp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup gp, int id) {
 //                Log.d(FragmentTags.slotSelectionTag, "in onCheckedChanged");
-                int day = 0;
                 if (id == R.id.today) {
-                    day = DeliveryDay.TODAY;
-                } else if (id == R.id.tomorrow) {
-
-                    day = DeliveryDay.TOMORROW;
+                    frequency = RepetitionFrequency.DAILY;
+                } else if (id == R.id.weekly) {
+                    frequency = RepetitionFrequency.WEEKLY;
                 }
             }
 
@@ -96,25 +86,24 @@ public class SlotSelectionFragment extends DialogFragment {
 
     @OnClick(R.id.set_btn)
     public void setSlot() {
+        if (frequency == RepetitionFrequency.NONE) {
+            //mListener.showCustomViewToast("Please select a slot");
+            //parentActivity.hideProgressDialog();
+        }
+        else {
+            UIEvents.OrderFrequencyChosen myEvent =
+                    new UIEvents.OrderFrequencyChosen(frequency);
+            EventBus.getDefault().post(myEvent);
+
+            //parentActivity.hideProgressDialog();
+            dismiss();
+        }
         dismiss();
     }
 
     @OnClick(R.id.cancel_btn)
     public void cancelSelection() {
         dismiss();
-    }
-
-    public void selectSlot(JsonObject selectedSlot) {
-        if (selectedSlot == null) {
-            //mListener.showCustomViewToast("Please select a slot");
-        }
-        else {
-            int selSlotId = selectedSlot.get("id").getAsInt();
-            String day = selDay == DeliveryDay.TODAY ? "Today" : "Tomorrow";
-            String slot = selectedSlot.get("start_time").getAsString() + " to " + selectedSlot.get("end_time").getAsString();
-
-            dismiss();
-        }
     }
 
     @Override

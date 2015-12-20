@@ -42,7 +42,7 @@
             android:drawableLeft="@drawable/checkout_radio_selector"/>
 
         <RadioButton
-            android:id="@+id/tomorrow"
+            android:id="@+id/weekly"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/timeSlot_selectTime"
