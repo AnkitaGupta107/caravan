@@ -45,7 +45,8 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:src="@drawable/amul_taaza"/>
 
             </LinearLayout>
 
@@ -78,20 +79,11 @@
                 android:layout_toRightOf="@+id/image_wrapper">
 
                 <TextView
-                    android:id="@+id/rs1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/Rs"
-                    android:textColor="#4a4a4a" />
-
-                <TextView
                     android:id="@+id/mrp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/amount1"
-                    android:layout_marginLeft="8dp"
                     android:textColor="#4a4a4a" />
 
 
@@ -162,7 +154,8 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:src="@drawable/amul_gold"/>
 
             </LinearLayout>
 
@@ -195,20 +188,11 @@
                 android:layout_toRightOf="@+id/image_wrapper1">
 
                 <TextView
-                    android:id="@+id/rs2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/Rs"
-                    android:textColor="#4a4a4a" />
-
-                <TextView
                     android:id="@+id/mrp1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/amount2"
-                    android:layout_marginLeft="8dp"
                     android:textColor="#4a4a4a" />
 
                 <TextView
@@ -277,7 +261,8 @@
                     android:layout_height="80dp"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:padding="5dp" />
+                    android:padding="5dp"
+                    android:src="@drawable/eggs"/>
 
             </LinearLayout>
 
@@ -310,19 +295,10 @@
                 android:layout_toRightOf="@+id/image_wrapper2">
 
                 <TextView
-                    android:id="@+id/rs3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:text="@string/Rs"
-                    android:textColor="#4a4a4a" />
-
-                <TextView
                     android:id="@+id/mrp2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="8dp"
                     android:text="@string/amount3"
                     android:textColor="#4a4a4a" />
 

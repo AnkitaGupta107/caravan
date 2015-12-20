@@ -7,6 +7,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_checkout_detail">CheckoutDetailActivity</string>
     <string name="q1">1. <u>What is daily order?</u></string>
     <string name="a1">You can order perishable products (which you need daily) and during checkout, can select that order for daily delivery. PepperTap will deliver the order to you at 6am every day</string>
     <string name="q2">2. <u>What is weekly order?</u></string>
@@ -22,9 +23,9 @@
     <string name="product_title3">White Eggs</string>
     <string name="attribute1">500 ML</string>
     <string name="attribute3">6 PC</string>
-    <string name="amount1">19</string>
-    <string name="amount2">24</string>
-    <string name="amount3">35</string>
+    <string name="amount1">\u20B919</string>
+    <string name="amount2">\u20B924</string>
+    <string name="amount3">\u20B935</string>
     <string name="qty1">100</string>
     <string name="qty2">150</string>
     <string name="qty3">200</string>
@@ -38,11 +39,11 @@
     <string name="prev_placed_date2">Sat, 9 Dec</string>
     <string name="prev_placed_date3">Sun, 10 Dec</string>
     <string name="Rs">\u20B9</string>
-    <string name="total1">1900</string>
-    <string name="total2">3600</string>
-    <string name="total3">7000</string>
-    <string name="total_amount">12,500</string>
-    <string name="total_amount2">16,000</string>
-    <string name="total_amount3">9,750</string>
+    <string name="total1">\u20B91900</string>
+    <string name="total2">\u20B93600</string>
+    <string name="total3">\u20B97000</string>
+    <string name="total_amount">\u20B912,500</string>
+    <string name="total_amount2">\u20B916,000</string>
+    <string name="total_amount3">\u20B99,750</string>
     <string name="total_items">3</string>
 </resources>

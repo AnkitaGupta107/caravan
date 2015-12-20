@@ -10,23 +10,18 @@ import com.peppertap.caravan.R;
 /**
  * Created by KhushbooGupta on 12/19/15.
  */
-public class CartActivity extends BaseActivity {
+public class CheckoutConfirmActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.cart);
+        setContentView(R.layout.checkout_order_confirmation);
     }
+
 
     @Override
     protected void configureToolbar() {
 
-    }
-
-    public void sendMessage(View view)
-    {
-        Intent intent = new Intent(this, CheckoutDetailActivity.class);
-        startActivity(intent);
     }
 
     @Override
