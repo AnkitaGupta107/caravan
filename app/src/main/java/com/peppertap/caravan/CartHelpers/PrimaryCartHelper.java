@@ -137,7 +137,7 @@ public class PrimaryCartHelper extends BaseCartHelper {
         return quantity;
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ProductAddEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ProductAddEvent e){
         String prod_code = null;
 
         ProductHelper.ProductGaClassification classification;
@@ -171,7 +171,7 @@ public class PrimaryCartHelper extends BaseCartHelper {
         }
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ProductReduceEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ProductReduceEvent e){
         String prod_code = null;
         ProductHelper.ProductGaClassification classification;
         String ga_string = "";
@@ -207,13 +207,13 @@ public class PrimaryCartHelper extends BaseCartHelper {
         }
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.AddLineItemEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.AddLineItemEvent e){
         LineItem item = e.getLineItem();
         item.setCartID(new Long(1));
         LineItemRepository.getInstance(globalApplication).addLineItem(item);
     }
 
-    public void onEventAsync(PrimaryCartDbEvents.ReduceLineItemEvent e){
+    public void onEventBackgroundThread(PrimaryCartDbEvents.ReduceLineItemEvent e){
         LineItem item = e.getLineItem();
         item.setCartID(new Long(1));
         LineItemRepository.getInstance(globalApplication).reduceLineItem(item);

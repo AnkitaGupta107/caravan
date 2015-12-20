@@ -164,6 +164,9 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
     }
 
     public void performSearch(final String query) {
+        if (query == null || query.equals("")) {
+            return;
+        }
         cancelSearchRequest();
         String zone_id = globalApplication.getAppData().getZone_id();
         String search_url = Urls.getSearchUrl(query, globalApplication.getAppData().getSession_id(), zone_id);
@@ -174,7 +177,7 @@ public class SearchResultsAdapter extends RecyclerView.Adapter {
         ResponseListener<JsonObject> responseListener = new ResponseListener<JsonObject>() {
             @Override
             public void onResponse(JsonObject result) {
-                Timber.d(result.toString());
+                //Timber.d(result.toString());
 
                 if (JsonHelper.getValueOrNone(result, "status").equals("OK")) {
                     ProductHelper productHelper = ProductHelper.fromJson(result);

@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,11 +16,15 @@ import com.peppertap.caravan.CaravanApp;
 import com.peppertap.caravan.R;
 import com.peppertap.caravan.cartHelpers.PrimaryCartHelper;
 import com.peppertap.caravan.data.ProductHelper;
+import com.peppertap.caravan.events.PrimaryCartDbEvents;
 import com.peppertap.caravan.network.Urls;
 import com.peppertap.caravan.utils.MoneyHelper;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
+import timber.log.Timber;
 
 /**
  * Created by samvedana on 19/12/15.
@@ -39,6 +45,8 @@ public class ProductHolder extends RecyclerView.ViewHolder {
     @InjectView(R.id.line_item_image)
     ImageView image;
 
+    int num_qt;
+
     ProductHelper.ProductGroup data;
     ProductHelper.ProductItem item;
     CaravanApp globalApplication;
@@ -48,6 +56,35 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         globalApplication = app;
         ButterKnife.inject(this, itemView);
         resources = itemView.getResources();
+
+        TextWatcher editTextWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable qt) {
+                int num = 0;
+                try {
+                    num = Integer.parseInt(qt.toString());
+                    if (num > 0) {
+                        num_qt = num;
+                        calculateAndDisplayTotal();
+                    }
+                } catch (NumberFormatException e) {
+                    //e.printStackTrace();
+                    Timber.e("Empty quantity or invalid int");
+                }
+            }
+        };
+
+        quantity.addTextChangedListener(editTextWatcher);
     }
 
     public void bindData(ProductHelper.ProductGroup group) {
@@ -82,7 +119,23 @@ public class ProductHolder extends RecyclerView.ViewHolder {
         protected void onProgressUpdate(Integer... progress) {}
 
         protected void onPostExecute(Integer result) {
-            adapterHolder.quantity.setText(result + "");
+            num_qt = result;
+            adapterHolder.quantity.setText(num_qt + "");
+            adapterHolder.calculateAndDisplayTotal();
+        }
+    }
+
+    private void calculateAndDisplayTotal() {
+        float sale_total = num_qt * Float.valueOf(item.getSale_price());
+        total.setText("\u20B9"+ MoneyHelper.toMoneyTwoDecimals(sale_total));
+    }
+
+    @OnClick(R.id.addToCartBtn)
+    public void addToCart() {
+        if (num_qt > 0) {
+            PrimaryCartDbEvents.ProductAddEvent event = new PrimaryCartDbEvents.ProductAddEvent(item, "Shop Page");
+            event.productsToBeAddedProgramaticallyWithQt(num_qt);
+            EventBus.getDefault().post(event);
         }
     }
 }
