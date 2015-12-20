@@ -148,7 +148,12 @@ public class PrimaryCartHelper extends BaseCartHelper {
 
         if(e.getLineItem() != null){
             lineItem = e.getLineItem();
-            addProduct(lineItem);
+            if (e.wereProductsToBeAddedProgramatically()) {
+                addProduct(lineItem, e.getQt());
+            }
+            else {
+                addProduct(lineItem);
+            }
             prod_code = lineItem.getProduct_code();
             classification = LineItemRepository.getInstance(globalApplication).getProductGaClassification(lineItem);
             ga_string = classification.toGaString();
@@ -177,7 +182,12 @@ public class PrimaryCartHelper extends BaseCartHelper {
         String ga_string = "";
         if(e.getLineItem() != null){
             LineItem lineItem = e.getLineItem();
-            reduceProduct(lineItem);
+            if (e.isRemoveProduct()) {
+                removeProduct(lineItem);
+            }
+            else {
+                reduceProduct(lineItem);
+            }
             prod_code = lineItem.getProduct_code();
             classification = LineItemRepository.getInstance(globalApplication).getProductGaClassification(lineItem);
             ga_string = classification.toGaString();
